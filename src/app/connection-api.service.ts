@@ -18,4 +18,9 @@ export class ConnectionApiService {
   enviarObjeto(objeto: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/enviar-objeto`, objeto);
   }
+
+  enviarObjetoFirebase(): Observable<any> {
+    // return this.http.get(`${this.apiUrl}/savedata`);
+    return this.http.get(`${this.apiUrl}/buscar-dados-firestore`);
+  }
 }

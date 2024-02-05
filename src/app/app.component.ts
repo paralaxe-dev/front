@@ -18,8 +18,20 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.sendData()
-    this.getData()
+    // this.sendData()
+    // this.getData()
+    this.testeFirebase();
+  }
+
+  testeFirebase() {
+    this.connectionService.enviarObjetoFirebase().subscribe(
+      (resposta) => {
+        console.log('Resposta do backend:', resposta);
+      },
+      (erro) => {
+        console.error('Erro ao enviar objeto para o backend:', erro);
+      }
+    );
   }
 
   getData() {
