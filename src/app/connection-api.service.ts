@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Product } from './product';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,20 @@ export class ConnectionApiService {
 
   private apiUrl = 'http://localhost:8080/api';
 
-  buscarDados(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/receber-dados`);
+  newProduct(product: Product): Observable<any> {
+    return this.http.post(`${this.apiUrl}/add-product`, product)
   }
 
-  enviarObjeto(objeto: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/enviar-objeto`, objeto);
-  }
+  // buscarDados(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/receber-dados`);
+  // }
 
-  enviarObjetoFirebase(): Observable<any> {
-    // return this.http.get(`${this.apiUrl}/savedata`);
-    return this.http.get(`${this.apiUrl}/buscar-dados-firestore`);
-  }
+  // enviarObjeto(objeto: any): Observable<any> {
+  //   return this.http.post(`${this.apiUrl}/enviar-objeto`, objeto);
+  // }
+
+  // enviarObjetoFirebase(): Observable<any> {
+  //   // return this.http.get(`${this.apiUrl}/savedata`);
+  //   return this.http.get(`${this.apiUrl}/buscar-dados-firestore`);
+  // }
 }

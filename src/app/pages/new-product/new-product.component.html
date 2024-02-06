@@ -1,0 +1,10 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="save(form)">
+    <input type="text" placeholder="Referência" name="ref" ngModel>
+    <input type="text" placeholder="Descrição" name="description" ngModel>
+    <input type="text" placeholder="Fornecedor" name="supplier" ngModel>
+    <input type="text" placeholder="Custo" name="cost" ngModel>
+    <input type="text" placeholder="Venda" name="sale" ngModel>
+    <button>Salvar</button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="header">
+  <h1>Controle de estoque</h1>
+  <button routerLink="/new-product">Adicionar produto</button>
+</div>
+
+<table id="customers">
+  <tr>
+    <th>Ref</th>
+    <th>Data</th>
+    <th>Descrição</th>
+    <th>Fornecedor</th>
+    <th>Custo</th>
+    <th>Venda</th>
+    <th style="text-align: center;">Baixa</th>
+  </tr>
+  <tr>
+    <td>05486188</td>
+    <td>15/02/2024</td>
+    <td>Vestido vermelho</td>
+    <td>Loja Maria</td>
+    <td>R$ 78,00</td>
+    <td>R$ 149,90</td>
+    <td style="text-align: center;"><button (click)="productSold()">Vendido</button></td>
+  </tr>
+</table>
