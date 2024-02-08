@@ -20,6 +20,6 @@
     <td>{{ product.Supplier}}</td>
     <td>{{ product.Cost }}</td>
     <td>{{ product.Sale }}</td>
-    <td style="text-align: center;"><button (click)="productSold()">Vendido</button></td>
+    <td style="text-align: center;"><button (click)="productSold(product.ID)">Vendido</button></td>
   </tr>
 </table>

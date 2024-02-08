@@ -1,1 +1,24 @@
-<p>sales works!</p>
+<div class="header">
+  <h1>Controle de estoque</h1>
+</div>
+
+<table id="customers">
+  <tr>
+    <th>Ref</th>
+    <th>Data</th>
+    <th>Descrição</th>
+    <th>Fornecedor</th>
+    <th>Custo</th>
+    <th>Venda</th>
+    <th style="text-align: center;">Baixa</th>
+  </tr>
+  <tr *ngFor="let product of sales; let i = index">
+    <td>{{ product.Ref }}</td>
+    <td>{{ product.Date }}</td>
+    <td>{{ product.Description }}</td>
+    <td>{{ product.Supplier}}</td>
+    <td>{{ product.Cost }}</td>
+    <td>{{ product.Sale }}</td>
+    <td style="text-align: center;"><button>OQ?</button></td>
+  </tr>
+</table>

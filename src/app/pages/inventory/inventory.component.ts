@@ -20,7 +20,11 @@ export class InventoryComponent implements OnInit {
     })
   }
 
-  productSold() {
-    alert("produto salvo em vendidos!")
+  productSold(id: string) {
+    //AQUI ABRIR UM POPUP E PERGUNTAR O PREÇO QUE FOI VENDIDO, E ALTERAR A DATA DO PRODUTO PARA A DATA DA VENDA
+    this.apiService.deleteProduct(id).subscribe({
+      next: res => console.log("resposta:", res),
+      complete: () => window.location.reload() //AQUI ATIVAR UM SPINNER ATÉ RECARREGAR A PÁGINA OU TENTAR USAR OBSERVABLES PARA ATUALIZAR AUTOMATICAMENTE
+    })
   }
 }

@@ -1,6 +1,7 @@
 import { ConnectionApiService } from './../../connection-api.service';
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
 
 @Component({
@@ -11,7 +12,8 @@ import { Product } from 'src/app/product';
 export class NewProductComponent {
   constructor(
     private datePipe: DatePipe,
-    private apiService: ConnectionApiService
+    private apiService: ConnectionApiService,
+    private router: Router
   ){}
 
   dataFormatada: any = ''
@@ -28,6 +30,9 @@ export class NewProductComponent {
       date: this.dataFormatada
     }
     console.log(product)
-    this.apiService.newProduct(product).subscribe((res) => console.log(res))
+    this.apiService.newProduct(product).subscribe({
+      next: res => console.log(res),
+      complete: () => this.router.navigate(['/inventory'])
+    })
   }
 }

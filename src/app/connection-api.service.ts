@@ -20,6 +20,14 @@ export class ConnectionApiService {
     return this.http.get(`${this.apiUrl}/get-products-list`);
   }
 
+  getSales(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/get-sales-list`);
+  }
+
+  deleteProduct(id: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/delete-product`, JSON.stringify(id));
+  }
+
   //
   //
 
