@@ -1,0 +1,52 @@
+:host {
+  div {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    & form {
+      width: 500px;
+      border: 1px solid blueviolet;
+      border-radius: 5px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      & h2 {
+        color: blueviolet;
+        margin: 0 0 20px 0;
+        padding: 0;
+      }
+      & input {
+        padding: 0 15px;
+        height: 30px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+        border-radius: 5px;
+      }
+      & input:focus {
+        border-color: blueviolet;
+        outline: none;
+      }
+      & .values {
+        display: flex;
+        justify-content: space-between;
+        & input {
+          width: 42%;
+        }
+      }
+      & button {
+        width: 100%;
+        background-color: blueviolet;
+        margin-top: 20px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      & button:hover {
+        background-color: rgb(118, 38, 193);
+      }
+    }
+  }
+}

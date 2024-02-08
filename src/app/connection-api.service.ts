@@ -16,16 +16,23 @@ export class ConnectionApiService {
     return this.http.post(`${this.apiUrl}/add-product`, product)
   }
 
-  // buscarDados(): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/receber-dados`);
-  // }
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/get-products-list`);
+  }
 
-  // enviarObjeto(objeto: any): Observable<any> {
-  //   return this.http.post(`${this.apiUrl}/enviar-objeto`, objeto);
-  // }
+  //
+  //
 
-  // enviarObjetoFirebase(): Observable<any> {
-  //   // return this.http.get(`${this.apiUrl}/savedata`);
-  //   return this.http.get(`${this.apiUrl}/buscar-dados-firestore`);
-  // }
+  buscarDados(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/receber-dados`);
+  }
+
+  enviarObjeto(objeto: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/enviar-objeto`, objeto);
+  }
+
+  enviarObjetoFirebase(): Observable<any> {
+    // return this.http.get(`${this.apiUrl}/savedata`);
+    return this.http.get(`${this.apiUrl}/buscar-dados-firestore`);
+  }
 }

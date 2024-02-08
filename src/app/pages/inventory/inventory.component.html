@@ -13,13 +13,13 @@
     <th>Venda</th>
     <th style="text-align: center;">Baixa</th>
   </tr>
-  <tr>
-    <td>05486188</td>
-    <td>15/02/2024</td>
-    <td>Vestido vermelho</td>
-    <td>Loja Maria</td>
-    <td>R$ 78,00</td>
-    <td>R$ 149,90</td>
+  <tr *ngFor="let product of products; let i = index">
+    <td>{{ product.Ref }}</td>
+    <td>{{ product.Date }}</td>
+    <td>{{ product.Description }}</td>
+    <td>{{ product.Supplier}}</td>
+    <td>{{ product.Cost }}</td>
+    <td>{{ product.Sale }}</td>
     <td style="text-align: center;"><button (click)="productSold()">Vendido</button></td>
   </tr>
 </table>
