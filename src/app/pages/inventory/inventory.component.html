@@ -1,6 +1,9 @@
+<div *ngIf="ready" class="ready"><h1>Aguarde...</h1></div>
+
 <div class="header">
   <h1>Controle de estoque</h1>
   <button routerLink="/new-product">Adicionar produto</button>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar produto...">
 </div>
 
 <table id="customers">
@@ -13,13 +16,16 @@
     <th>Venda</th>
     <th style="text-align: center;">Baixa</th>
   </tr>
-  <tr *ngFor="let product of products; let i = index">
+  <tr *ngFor="let product of filteredProducts(); let i = index">
     <td>{{ product.Ref }}</td>
     <td>{{ product.Date }}</td>
     <td>{{ product.Description }}</td>
     <td>{{ product.Supplier}}</td>
-    <td>{{ product.Cost }}</td>
-    <td>{{ product.Sale }}</td>
-    <td style="text-align: center;"><button (click)="productSold(product.ID)">Vendido</button></td>
+    <td>R$ {{ product.Cost }}</td>
+    <td>R$ {{ product.Sale }}</td>
+    <td style="display: flex; gap: 15px; justify-content: center;">
+      <button (click)="productSold(product.ID)">Vendido</button>
+      <button (click)="editProduct(product.ID)">Editar</button>
+    </td>
   </tr>
 </table>

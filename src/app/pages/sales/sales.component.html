@@ -1,5 +1,7 @@
+<div *ngIf="ready" class="ready"><h1>Aguarde...</h1></div>
+
 <div class="header">
-  <h1>Controle de estoque</h1>
+  <h1>Produtos vendidos</h1>
 </div>
 
 <table id="customers">
@@ -10,7 +12,7 @@
     <th>Fornecedor</th>
     <th>Custo</th>
     <th>Venda</th>
-    <th style="text-align: center;">Baixa</th>
+    <th style="text-align: center;">Options</th>
   </tr>
   <tr *ngFor="let product of sales; let i = index">
     <td>{{ product.Ref }}</td>
@@ -19,6 +21,9 @@
     <td>{{ product.Supplier}}</td>
     <td>{{ product.Cost }}</td>
     <td>{{ product.Sale }}</td>
-    <td style="text-align: center;"><button>OQ?</button></td>
+    <td style="display: flex; gap: 15px; justify-content: center;">
+      <button (click)="backInventory(i)">Voltar ao estoque</button>
+      <button (click)="deleteProduct(i)"><img src="../../../assets/delete.svg" width="15px"></button>
+    </td>
   </tr>
 </table>

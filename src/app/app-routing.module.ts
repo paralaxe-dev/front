@@ -7,6 +7,7 @@ import { DebtorsComponent } from './pages/debtors/debtors.component';
 import { InventoryComponent } from './pages/inventory/inventory.component';
 import { SalesComponent } from './pages/sales/sales.component';
 import { NewProductComponent } from './pages/new-product/new-product.component';
+import { NewDebtorComponent } from './pages/new-debtor/new-debtor.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'new-product',
     component: NewProductComponent
+  },
+  {
+    path: 'new-debtor',
+    component: NewDebtorComponent
   },
   {
     path: '**',

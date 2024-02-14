@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./debtors.component.scss']
 })
 export class DebtorsComponent {
-
+  public products: any = [] //tipar
 }

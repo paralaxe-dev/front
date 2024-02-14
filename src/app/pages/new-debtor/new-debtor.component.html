@@ -1,0 +1,8 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="save(form)">
+    <h2>Adicionar devedor:</h2>
+    <input type="text" placeholder="Nome" name="name" ngModel>
+    <input type="text" placeholder="Valor" name="value" ngModel>
+    <button>Salvar</button>
+  </form>
+</div>
