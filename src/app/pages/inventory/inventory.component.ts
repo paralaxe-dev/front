@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ConnectionApiService } from 'src/app/connection-api.service';
 import { PopupService } from 'src/app/popup.service';
+import { Product } from 'src/app/product';
 
 @Component({
   selector: 'app-inventory',
@@ -9,11 +11,19 @@ import { PopupService } from 'src/app/popup.service';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor(private apiService: ConnectionApiService, private popusService: PopupService){}
+  constructor(private apiService: ConnectionApiService, private popupService: PopupService){
+    this.inputValueSubscription = this.popupService.inputValue$.subscribe(value => {
+      this.inputValue = value;
+      this.submitValueFromPopup(value);
+    });
+  }
 
   public products: any = [] //tipar
   public ready: boolean = true;
   public searchTerm: string = '';
+
+  inputValue: number = 0; // Variável para armazenar o valor inserido
+  inputValueSubscription!: Subscription;
 
   ngOnInit(): void {
     this.apiService.getProducts().subscribe({
@@ -24,6 +34,14 @@ export class InventoryComponent implements OnInit {
         this.ready = false;
       }
     })
+    this.inputValueSubscription = this.popupService.inputValue$.subscribe(value => {
+      this.inputValue = value; // Atualiza o valor inserido
+      // console.log("valor retornado",this.inputValue)
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.inputValueSubscription.unsubscribe(); // Cancela a inscrição ao destruir o componente
   }
 
   filteredProducts(): any[] {
@@ -35,15 +53,36 @@ export class InventoryComponent implements OnInit {
     );
   }
 
-  productSold(id: string) {
-    console.log("Produto vendido ID:", id);
-    console.log("entrou")
-    this.popusService.openPopup();
-    //AQUI ABRIR UM POPUP E PERGUNTAR O PREÇO QUE FOI VENDIDO, E ALTERAR A DATA DO PRODUTO PARA A DATA DA VENDA
-    // this.apiService.deleteProduct(id).subscribe({
-    //   next: res => console.log("resposta:", res),
-    //   complete: () => window.location.reload() //AQUI ATIVAR UM SPINNER ATÉ RECARREGAR A PÁGINA OU TENTAR USAR OBSERVABLES PARA ATUALIZAR AUTOMATICAMENTE
-    // })
+  public produtoVendido: any;
+
+  openPopup(product: any) {
+    this.produtoVendido = product;
+    console.log('produto para excluir:', this.produtoVendido)
+    this.popupService.openPopup();
+  }
+
+  keysToLowerCase(obj: any): any {
+    if (obj === null || typeof obj !== 'object') {
+      return obj;
+    }
+
+    const result: any = {};
+
+    Object.keys(obj).forEach(key => {
+      result[key.toLowerCase()] = obj[key];
+    });
+
+    return result;
+  }
+
+  submitValueFromPopup(value: number) {
+    this.produtoVendido!.Sale = value
+    let transformProduct = this.keysToLowerCase(this.produtoVendido)
+
+    this.apiService.deleteProduct(transformProduct).subscribe({
+      next: res => console.log("resposta:", res),
+      complete: () => window.location.reload() //AQUI ATIVAR UM SPINNER ATÉ RECARREGAR A PÁGINA OU TENTAR USAR OBSERVABLES PARA ATUALIZAR AUTOMATICAMENTE
+    })
   }
 
   editProduct(id: string) {

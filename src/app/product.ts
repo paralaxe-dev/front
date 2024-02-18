@@ -1,8 +1,8 @@
 export interface Product {
+  sale: number;
   ref: string;
   description: string;
   supplier: string;
-  cost: string;
-  sale: string;
+  cost: number;
   date: string;
 }

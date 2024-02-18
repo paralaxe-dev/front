@@ -7,7 +7,7 @@ import { PopupService } from '../popup.service';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent {
-  inputValue: string = '';
+  inputValue: number | null = null;
 
   constructor(public popupService: PopupService) {}
 
@@ -16,7 +16,8 @@ export class PopupComponent {
   }
 
   submitValue() {
-    console.log('Valor inserido:', this.inputValue);
+    // console.log('Valor inserido:', this.inputValue);
+    this.popupService.setInputValue(this.inputValue!); // Envia o valor inserido
     this.closePopup();
   }
 }

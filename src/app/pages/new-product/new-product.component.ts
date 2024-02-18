@@ -29,7 +29,7 @@ export class NewProductComponent {
       sale: data.value.sale,
       date: this.dataFormatada
     }
-    console.log(product)
+    console.log(JSON.stringify(product))
     this.apiService.newProduct(product).subscribe({
       next: res => console.log(res),
       complete: () => this.router.navigate(['/inventory'])

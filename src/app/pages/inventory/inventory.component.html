@@ -24,7 +24,7 @@
     <td>R$ {{ product.Cost }}</td>
     <td>R$ {{ product.Sale }}</td>
     <td style="display: flex; gap: 15px; justify-content: center;">
-      <button (click)="productSold(product.ID)">Vendido</button>
+      <button (click)="openPopup(product)">Vendido</button>
       <button (click)="editProduct(product.ID)">Editar</button>
     </td>
   </tr>
