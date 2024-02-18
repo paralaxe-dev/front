@@ -13,22 +13,22 @@
 
   .header {
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
     & h1 {
       text-align: center;
       color: blueviolet;
       text-transform: uppercase;
     }
-    & button {
-      background-color: blueviolet;
-      border: none;
-      border-radius: 3px;
-      padding: 10px 30px;
-      color: white;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-    & button:hover {
-      background-color: rgb(106, 33, 176);
+    & div {
+      background-color: rgb(238, 221, 255);
+      border: 1px solid blueviolet;
+      border-radius: 5px;
+      display: flex;
+      & p {
+        padding: 10px 20px;
+      }
     }
   }
 

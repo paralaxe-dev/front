@@ -1,0 +1,9 @@
+<div class="popup-overlay" *ngIf="popupService.showPopup$ | async">
+  <div class="popup">
+    <span class="close-popup" (click)="closePopup()">&times;</span>
+    <h2>Insira um valor:</h2>
+    <input type="text" [(ngModel)]="inputValue"> <!--[(ngModel)]="inputValue"-->
+    <button (click)="submitValue()">Enviar</button>
+  </div>
+</div>
+

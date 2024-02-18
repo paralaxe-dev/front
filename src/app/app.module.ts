@@ -13,6 +13,7 @@ import { NewProductComponent } from './pages/new-product/new-product.component';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { NewDebtorComponent } from './pages/new-debtor/new-debtor.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewDebtorComponent } from './pages/new-debtor/new-debtor.component';
     SalesComponent,
     DebtorsComponent,
     NewProductComponent,
-    NewDebtorComponent
+    NewDebtorComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

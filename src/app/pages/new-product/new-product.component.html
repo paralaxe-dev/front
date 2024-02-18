@@ -1,12 +1,12 @@
 <div>
   <form #form="ngForm" (ngSubmit)="save(form)">
     <h2>Adicionar produtos:</h2>
-    <input type="text" placeholder="Referência" name="ref" ngModel>
+    <input type="text" placeholder="Referência" name="ref" ngModel autofocus>
     <input type="text" placeholder="Descrição" name="description" ngModel>
     <input type="text" placeholder="Fornecedor" name="supplier" ngModel>
     <section class="values">
-      <input type="text" placeholder="Custo" name="cost" ngModel>
-      <input type="text" placeholder="Venda" name="sale" ngModel>
+      <input type="number" placeholder="Custo" name="cost" ngModel>
+      <input type="number" placeholder="Venda" name="sale" ngModel>
     </section>
     <button>Salvar</button>
   </form>
