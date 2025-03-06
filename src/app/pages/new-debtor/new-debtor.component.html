@@ -1,8 +1,11 @@
 <div>
   <form #form="ngForm" (ngSubmit)="save(form)">
-    <h2>Adicionar devedor:</h2>
+    <h2>Adicionar cliente:</h2>
     <input type="text" placeholder="Nome" name="name" ngModel>
-    <input type="text" placeholder="Valor" name="value" ngModel>
+    <input type="text" placeholder="Data do vencimento" name="dataParc" ngModel>
+    <input type="number" placeholder="Valor da parcela" name="valorParc" ngModel>
+    <input type="number" placeholder="Parcelas restantes" name="numeroParc" ngModel>
+    <input type="number" placeholder="Valor total" name="value" ngModel>
     <button>Salvar</button>
   </form>
 </div>

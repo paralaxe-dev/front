@@ -16,8 +16,16 @@ export class ConnectionApiService {
     return this.http.post(`${this.apiUrl}/add-product`, product)
   }
 
+  newDebtor(debtor: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/add-debtor`, debtor)
+  }
+
   getProducts(): Observable<any> {
     return this.http.get(`${this.apiUrl}/get-products-list`);
+  }
+
+  getDebtors(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/get-debtors-list`);
   }
 
   getSales(): Observable<any> {

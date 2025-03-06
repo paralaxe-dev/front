@@ -1,19 +1,23 @@
 <div class="header">
-  <h1>Devedores</h1>
-  <button routerLink="/new-debtor">Adicionar devedor</button>
+  <h1>Clientes</h1>
+  <button routerLink="/new-debtor">Adicionar cliente</button>
 </div>
 
 <table id="customers">
   <tr>
     <th>Nome</th>
-    <th>Data</th>
-    <th>Valor</th>
+    <th>Próximo vencimento</th>
+    <th>Valor parcela</th>
+    <th>Parcelas restantes</th>
+    <th>Valor total</th>
     <th style="text-align: center;">Opções</th>
   </tr>
-  <tr>
-    <td>André</td>
-    <td>14/02/2024</td>
-    <td>R$ 149,00</td>
+  <tr *ngFor="let client of clients">
+    <td>{{ client.Name }}</td>
+    <td>{{ client.Date }}</td>
+    <td>R$ {{ client.ValueParc }}</td>
+    <td>{{ client.NumberParc }}x</td>
+    <td>R$ {{ client.Value }}</td>
     <td style="display: flex; gap: 15px; justify-content: center;">
       <button>Editar</button>
       <button>Deletar</button>
